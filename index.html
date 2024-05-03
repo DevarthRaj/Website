@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Name</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bottomcontainer2 {
+            position: fixed;
+            bottom: 20px;
+            left: calc(15% - 200px); 
+            width: 700px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        h1 {
+            color: rgb(208, 46, 73);
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(198, 57, 80);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6b9c;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            padding: 10px 150px; /* Adjust padding here */
+            background-color: #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Added */
+            color: #000; /* Added */
+        }
+
+        .tab:hover {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Website Name</h1>
+    </div>
+
+    <div class="tabs">
+        <a href="#" class="tab">Profile</a>
+        <a href="#" class="tab">Help</a>
+        <a href="#" class="tab">Libraries</a>
+        <a href="#" class="tab">Settings</a>
+    </div>
+
+    <div class="bottomcontainer2">
+        <form>
+            <label for="postText">Enter your text:</label><br>
+            <input type="text" id="postText" name="postText"><br>
+            <button type="button" onclick="postText()">Post</button>
+        </form>
+    </div>
+
+    <script>
+        function postText() {
+            var text = document.getElementById("postText").value;
+            alert("Posted Text: " + text);
+        }
+    </script>
+</body>
+</html>
