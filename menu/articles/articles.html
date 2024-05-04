@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Links</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Taro&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Taro', sans-serif;
+            position: relative; /* Make body a relative position container */
+        }
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            width: calc(33.33% - 20px); /* Set width for each video container */
+            margin-right: 20px; /* Add space between video containers */
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .video-container p {
+            margin: 10px 0 0; /* Add margin to separate title from thumbnail */
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .video-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .videos-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 20px; /* Add padding to the sides */
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Align items vertically */
+            padding: 0 20px; /* Adjust padding */
+        }
+        h1 {
+            margin: 10px 0; /* Add margin to the top and bottom */
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%; /* Adjust width */
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+        }
+        .search-bar input {
+            width: 70%; /* Adjust input width */
+            padding: 8px;
+            border: none;
+            border-radius: 15px;
+            margin-right: 5px;
+        }
+        .search-bar button {
+            padding: 8px 15px; /* Adjust padding */
+            border: none;
+            border-radius: 15px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .back-button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 15px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="back-button" onclick="goToMainMenu()">Back</button>
+        <h1>ARTICLES</h1>
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search..." oninput="filterVideos()">
+            <button type="submit">Search</button>
+        </div>
+    </div>
+
+    <div class="videos-row" id="videosRow">
+        <!-- Video containers will be dynamically added here -->
+    </div>
+
+    <script>
+        // Original video data...
+        var videoData = [
+            {
+                title: "What is mental health?",
+                thumbnail: "images/Screenshot 2024-05-04 091349.png",
+                link: "https://www.medicalnewstoday.com/articles/154543"
+            },
+            {
+                title: "10 Tips To Boost Your Mental Heath",
+                thumbnail: "images/Screenshot 2024-05-04 092020.png",
+                link: "http://www.bcmhsus.ca/about/news-stories/stories/10-tips-to-boost-your-mental-health_"
+            },
+            {
+                title: "8 Things To Do To Improve Your Mental Health",
+                thumbnail: "images/images.jpeg",
+                link: "https://youtu.be/3QIfkeA6HBY?si=MqGtrW0o6xjgrURz"
+            },
+            {
+                title: "10-Important-Activities-That-Improve-Your-Mental-Health",
+                thumbnail: "images/10-Important-Activities-That-Improve-Your-Mental-Health-scaled.jpg",
+                link: "https://youtu.be/IDPDEKtd2yM?si=PbHPcveXnhbaR7MB"
+            },
+            {
+                title: "How to Have a Better Mental Health",
+                thumbnail: "images/images (1).jpeg", // Editable thumbnail URL for the fifth video
+                link: "https://youtu.be/IY2y6kH745A?si=MCPAzC8HEkIt706S"
+            },
+            {
+                title: "IMPROVE YOUR MENTAL HEALTH",
+                thumbnail:"images/images (2).jpeg", // Editable thumbnail URL for the sixth video
+                link: "https://www.youtube.com/watch?v=SIXTH_VIDEO_ID"
+            }
+        ];
+
+        // Repeat the original video data six times
+        var repeatedData = [];
+        for (var i = 0; i < 6; i++) {
+            repeatedData = repeatedData.concat(videoData);
+        }
+
+        // Function to create video containers
+        function createVideoContainers(videos) {
+            var videosRow = document.getElementById("videosRow");
+            videosRow.innerHTML = ""; // Clear previous video containers
+            videos.forEach(function(video, index) {
+                var videoContainer = document.createElement("div");
+                videoContainer.className = "video-container";
+                var thumbnail = document.createElement("img");
+                thumbnail.src = video.thumbnail;
+                var title = document.createElement("p");
+                var titleLink = document.createElement("a");
+                titleLink.href = video.link;
+                titleLink.textContent = video.title;
+                title.appendChild(titleLink);
+                videoContainer.appendChild(thumbnail);
+                videoContainer.appendChild(title);
+                videosRow.appendChild(videoContainer);
+            });
+        }
+
+        // Function to filter videos based on search term
+        function filterVideos() {
+            var searchTerm = document.querySelector("#searchBar input").value.toLowerCase();
+            var filteredVideos = repeatedData.filter(function(video) {
+                return video.title.toLowerCase().includes(searchTerm);
+            });
+            createVideoContainers(filteredVideos);
+        }
+
+        // Initial creation of video containers
+        createVideoContainers(repeatedData);
+
+        // Function to go to main menu
+        function goToMainMenu() {
+            history.back();
+        }
+    </script>
+</body>
+</html>

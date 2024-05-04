@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Navigation styles */
+        nav {
+            background-color: #c7e0bf; /* Light green color */
+            padding: 20px;
+            border-radius: 15px; /* Slightly curved borders */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+            text-align: center;
+            width: 300px; /* Adjusted width */
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-item {
+            margin-bottom: 15px; /* Added margin bottom for spacing */
+            border-radius: 10px; /* Slightly curved borders */
+        }
+        .menu-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 24px; /* Increased font size */
+            display: block; /* Ensures each link occupies full width */
+            padding: 15px; /* Increased padding for better touch targets */
+            transition: background-color 0.3s ease;
+            background-color: #fff; /* White background color */
+            margin-bottom: 10px; /* Spacing between blocks */
+            border: 2px solid #c7e0bf; /* Light green border */
+        }
+        .menu-item a:hover {
+            background-color: #a3d1a2; /* Darker green color on hover */
+            color: #fff; /* Change text color on hover */
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Library</h1>
+        <div class="menu-item"><a href="videos\index.html">Videos</a></div>
+        <div class="menu-item"><a href="articles/articles.html">Articles</a></div>
+        <div class="menu-item"><a href="games.html">Games</a></div>
+        <div class="menu-item"><a href="more.html">More</a></div>
+    </nav>
+</body>
+</html>
+
