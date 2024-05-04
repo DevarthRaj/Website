@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Name</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align contents to the top */
+            min-height: 100vh;
+        }
+
+        .container {
+    max-width: 2000px;
+    margin: 10px auto 0; /* Adjusted margin */
+    padding: 10px;
+    text-align: left; /* Align heading to the far left */
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Use Juno font for the heading */
+    color: rgb(208, 46, 73);
+    font-size: 3cap; /* Adjust font size as needed */
+}
+        .bottomcontainer2 {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 700px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            color: rgb(208, 46, 73);
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(198, 57, 80);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #ff6b9c;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .tab {
+            padding: 10px 150px; /* Adjust padding here */
+            background-color: #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Added */
+            color: #000; /* Added */
+        }
+
+        .tab:hover {
+            background-color: #bbb;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 700px;
+            height: 500px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 5px; /* Adjusted margin */
+            border-radius: 10px;
+            background-color: #e6e6e6;
+        }
+
+        .message {
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Added */
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .message img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            background-color: #e6e6e6;
+            color: #333;
+            padding: 10px;
+            border-radius: 20px;
+            max-width: 60%;
+        }
+
+        .message.sent .message-content {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .message-info {
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #888;
+            margin-left: auto;
+        }
+
+        .comments {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 5px;
+            padding-left: 40px; /* Added padding to align with message content */
+            cursor: pointer; /* Added cursor pointer */
+        }
+
+        .comment-input {
+            display: none; /* Hide the comment input by default */
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .comments-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 70vh;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .comments-container.show {
+            display: block;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        /* New styles for the nested chat interface */
+        .nested-chat {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .nested-chat.show {
+            display: block;
+        }
+
+        .nested-message {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .nested-message img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .nested-message-content {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 10px;
+            border-radius: 20px;
+            max-width: 60%;
+        }
+
+        .nested-message.sent .nested-message-content {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .nested-message-info {
+            font-size: 0.8rem;
+            color: #888;
+            margin-left: auto;
+        }
+
+        .nested-comment-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .nested-comment-input input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .nested-comment-input button {
+            background-color: rgb(198, 57, 80);
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nested-comment-input button:hover {
+            background-color: #ff6b9c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MINDSPACE</h1>
+    </div>
+
+    <div class="tabs">
+        <a href="#" class="tab">Profile</a>
+        <a href="#" class="tab">Help</a>
+        <a href="#" class="tab">Libraries</a>
+        <a href="#" class="tab">Settings</a>
+    </div>
+
+    <div class="chat-container" id="chat-container">
+        <div class="message sent">
+            <img src="images/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="Profile Picture">
+            <div>
+                <div class="message-content">Hello there!</div>
+                <div class="message-info">Abraham - 10:01 AM</div>
+            </div>
+            <div class="comments" onclick="showComments(1)">Comments: 0</div> <!-- Comments section -->
+            <div class="comment-input" id="comment-input-1">
+                <input type="text" placeholder="Write a comment...">
+                <button onclick="postComment(1)">Post</button>
+            </div>
+        </div>
+        <!-- Add more messages here -->
+
+        <div class="message sent">
+            <img src="images/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="Profile Picture">
+            <div>
+                <div class="message-content">Ive been suffering from high pressure from my job and im not getting any time to spend with my family.what am i supposed to do????</div>
+                <div class="message-info">James - 10:00 AM</div>
+            </div>
+            <div class="comments" onclick="showComments(1)">Comments: 0</div> <!-- Comments section -->
+            <div class="comment-input" id="comment-input-1">
+                <input type="text" placeholder="Write a comment...">
+                <button onclick="postComment(1)">Post</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="comments-container" id="comments-container-1">
+        <!-- Comments will be dynamically added here -->
+    </div>
+
+    <div class="bottomcontainer2">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById('message-input');
+            var message = messageInput.value;
+            if (message.trim() === '') return;
+
+            var chatContainer = document.getElementById('chat-container');
+            var messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'sent');
+            messageElement.innerHTML = `
+                <img src="images/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="Profile Picture">
+                <div>
+                    <div class="message-content">${message}</div>
+                    <div class="message-info">405 - ${getTime()}</div>
+                </div>
+                <div class="comments" onclick="showComments(2)">Comments: 0</div> <!-- Comments section -->
+                <div class="comment-input" id="comment-input-2">
+                    <input type="text" placeholder="Write a comment...">
+                    <button onclick="postComment(2)">Post</button>
+                </div>
+            `;
+            chatContainer.appendChild(messageElement);
+
+            messageInput.value = '';
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function showComments(messageId) {
+    var commentsContainer = document.getElementById('comments-container-' + messageId);
+
+    if (commentsContainer.classList.contains('show')) {
+        commentsContainer.classList.remove('show');
+        return;
+    }
+
+    commentsContainer.innerHTML = ''; // Clear previous comments
+    commentsContainer.classList.add('show');
+
+    // For demo, adding some sample comments
+    var comments = [
+
+    ];
+
+    comments.forEach(function(comment) {
+        var commentElement = document.createElement('div');
+        commentElement.classList.add('comment');
+        commentElement.textContent = comment;
+        commentsContainer.appendChild(commentElement);
+    });
+
+    var nestedChat = document.createElement('div');
+    nestedChat.classList.add('nested-chat', 'show');
+    nestedChat.innerHTML = `
+        <div class="nested-message">
+            <img src="images/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg" alt="Profile Picture">
+            <div class="nested-message-content">You should leave that job.your family and your health is more important</div>
+            <div class="nested-message-info"> Dr.Abhinand✔️- ${getTime()}</div>
+        </div>
+        <div class="nested-message">
+            <img src="images/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg" alt="Profile Picture">
+            <div class="nested-message-content">Yes i agree with abhinand</div>
+            <div class="nested-message-info">John- ${getTime()}</div>
+        </div>
+        <div class="nested-message">
+            <img src="images/istockphoto-1313502972-612x612.jpg" alt="Profile Picture">
+            <div class="nested-message-content">...</div>
+            <div class="nested-message-info">Amanda- ${getTime()}</div>
+        </div>
+        <div class="nested-comment-input">
+            <input type="text" placeholder="Write a comment...">
+            <button onclick="sendNestedComment(${messageId})">Post</button>
+        </div>
+    `;
+    commentsContainer.appendChild(nestedChat);
+}
+
+        function postComment(messageId) {
+            var commentInput = document.getElementById('comment-input-' + messageId).querySelector('input[type="text"]');
+            var comment = commentInput.value;
+            if (comment.trim() === '') return;
+
+            var commentsContainer = document.getElementById('comments-container-' + messageId);
+            var newComment = document.createElement('div');
+            newComment.classList.add('comment');
+            newComment.textContent = comment;
+            commentsContainer.appendChild(newComment);
+
+            commentInput.value = '';
+        }
+
+        function sendNestedComment(messageId) {
+            var commentInput = document.getElementById('comments-container-' + messageId).querySelector('.nested-comment-input input[type="text"]');
+            var comment = commentInput.value;
+            if (comment.trim() === '') return;
+
+            var nestedChat = document.getElementById('comments-container-' + messageId).querySelector('.nested-chat');
+            var newComment = document.createElement('div');
+            newComment.classList.add('nested-message', 'sent');
+            newComment.innerHTML = `
+                <img src="profile-pic.jpg" alt="Profile Picture">
+                <div class="nested-message-content">${comment}</div>
+                <div class="nested-message-info">You - ${getTime()}</div>
+            `;
+            nestedChat.insertBefore(newComment, nestedChat.querySelector('.nested-comment-input'));
+
+            commentInput.value = '';
+        }
+
+        function getTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var time = hours + ':' + minutes + ' ' + ampm;
+            return time;
+        }
+    </script>
+</body>
+</html>
