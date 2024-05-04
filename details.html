@@ -1,195 +1,111 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details Input</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Your Website Name</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-            position: relative;
         }
-        header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 20px 0;
+
+        .container {
             text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 120px);
-        }
-        form {
-            background-color: #fff;
-            padding: 40px;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            width: 400px;
-            max-width: 90%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+
+        .bottomcontainer2 {
+            position: fixed;
+            bottom: 20px;
+            left: calc(15% - 200px); 
+            width: 700px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        h1 {
+            color: rgb(208, 46, 73);
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+        }
+
+        input[type="text"] {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin-top: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            font-size: 16px;
         }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+
         button {
-            padding: 12px 24px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .role-label {
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .proof-field {
-            display: none;
-        }
-        #doctor:checked ~ .proof-field {
-            display: block;
-        }
-        .icon {
-            font-size: 20px;
-            margin-right: 10px;
-        }
-        .title {
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
-        /* Custom radio button styles */
-        .radio-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .radio-container input[type="radio"] {
-            display: none;
-        }
-        .radio-container label {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            margin-right: 10px;
-            padding-left: 30px;
-            line-height: 1.5;
-        }
-        .radio-container label:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #007bff;
-            border-radius: 50%;
-            background-color: #fff;
-            transition: border-color 0.3s;
-        }
-        .radio-container input[type="radio"]:checked + label:before {
-            border-color: #007bff;
-        }
-        .radio-container label:after {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #007bff;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .radio-container input[type="radio"]:checked + label:after {
-            opacity: 1;
-        }
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 16px;
+            background-color: rgb(198, 57, 80);
+            color: white;
             padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .back-button:hover {
-            background-color: #0056b3;
+
+        button:hover {
+            background-color: #ff6b9c;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            padding: 10px 150px; /* Adjust padding here */
+            background-color: #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Added */
+            color: #000; /* Added */
+        }
+
+        .tab:hover {
+            background-color: #bbb;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>User Details Input</h1>
-    </header>
-    <main>
+    <div class="container">
+        <h1>Your Website Name</h1>
+    </div>
+
+    <div class="tabs">
+        <a href="profile.html" class="tab">Profile</a>
+        <a href="#" class="tab">Help</a>
+        <a href="menu/menu.html" class="tab">Libraries</a>
+        <a href="#" class="tab">Settings</a>
+    </div>
+
+    <div class="bottomcontainer2">
         <form>
-            <div class="title">Enter Your Details</div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob" required>
-            <label for="gender">Gender</label>
-            <select id="gender" name="gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
-            <div class="role-label">
-                <i class="icon fas fa-user-md"></i> Role
-            </div>
-            <div class="radio-container">
-                <input type="radio" id="doctor" name="role" value="doctor">
-                <label for="doctor">Doctor</label>
-                <input type="radio" id="patient" name="role" value="patient">
-                <label for="patient">Patient</label>
-            </div>
-            <div class="proof-field">
-                <label for="proof">Proof</label>
-                <input type="file" id="proof" name="proof">
-            </div>
-            <button type="submit">Submit</button>
+            <label for="postText">Enter your text:</label><br>
+            <input type="text" id="postText" name="postText"><br>
+            <button type="button" onclick="postText()">Post</button>
         </form>
-    </main>
-    <button class="back-button" onclick="goBack()">Back</button>
+    </div>
 
     <script>
-        function goBack() {
-            window.location.href = "sign.html";
+        function postText() {
+            var text = document.getElementById("postText").value;
+            alert("Posted Text: " + text);
         }
     </script>
 </body>
