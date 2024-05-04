@@ -55,6 +55,9 @@
             font-size: 36px;
             margin-bottom: 20px;
         }
+        .back-button {
+            margin-top: 20px; /* Added margin-top for spacing */
+        }
     </style>
 </head>
 <body>
@@ -64,7 +67,15 @@
         <div class="menu-item"><a href="articles/articles.html">Articles</a></div>
         <div class="menu-item"><a href="games.html">Games</a></div>
         <div class="menu-item"><a href="more.html">More</a></div>
+        <!-- Back button -->
+        <button class="back-button" onclick="goBack()">Back</button>
     </nav>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
 
