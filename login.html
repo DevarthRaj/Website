@@ -29,39 +29,18 @@
     color: #333;
   }
 
-  form {
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  label {
+  .login-button {
     display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-
-  button[type="submit"] {
-    width: 100%;
-    padding: 10px;
+    text-align: center;
+    text-decoration: none;
     background-color: #007bff;
-    border: none;
-    border-radius: 5px;
     color: #fff;
-    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
   }
 
-  button[type="submit"]:hover {
+  .login-button:hover {
     background-color: #0056b3;
   }
 
@@ -91,19 +70,7 @@
 
 <div class="login-container">
   <h2>Login Form</h2>
-  <form action="/login" method="post">
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <div>
-      <button type="submit">Login</button>
-    </div>
-  </form>
+  <a class="login-button" href="index.html">Login</a> <!-- Added login button -->
 </div>
 
 </body>
